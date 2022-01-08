@@ -69,6 +69,9 @@
                                     Product Name
                                 </th>
                                 <th scope="col" class="p-4 text-left text-xs font-medium text-gray-500 uppercase">
+                                    Photo
+                                </th>
+                                <th scope="col" class="p-4 text-left text-xs font-medium text-gray-500 uppercase">
                                     Model
                                 </th>
                                 <th scope="col" class="p-4 text-left text-xs font-medium text-gray-500 uppercase">
@@ -96,6 +99,9 @@
                                 <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
                                     <div class="text-base font-semibold text-gray-900"> {{ \Illuminate\Support\Str::limit($product->name, 55, $end='...') }}</div>
                                     <div class="text-sm font-normal text-gray-500"> {{ \Illuminate\Support\Str::limit($product->slug, 55, $end='...') }} </div>
+                                </td>
+                                <td class="p-4 whitespace-nowrap text-base font-medium text-gray-900">
+                                    <img src="{{$product->thumbnail}}" />
                                 </td>
                                 <td class="p-4 whitespace-nowrap text-base font-medium text-gray-900">
                                     {{ $product->model }}

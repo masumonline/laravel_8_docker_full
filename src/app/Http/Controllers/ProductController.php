@@ -83,13 +83,16 @@ class ProductController extends Controller
             foreach ($gphotos as $photo) {
                 $gallery = new Gallery;
                 $gallery->product_id = $product->id;
-                $gallery->photo = $photo;
+                $gallery->src = $photo;
+                $img_thumb = explode('/', $photo);
+                $directory = dirname($photo);
+                $thumb = $directory . '/thumbs/' . end($img_thumb);
+                $gallery->thumb = $thumb;
                 $gallery->save();
             }
         }
         return redirect('products')->with('success', 'Product is Updated!');
     }
-
     /**
      * Display the specified resource.
      *
@@ -155,10 +158,14 @@ class ProductController extends Controller
             }
             $gphotos = explode(',', $request->gallery);
             foreach ($gphotos as $photo) {
-                $newgalleries = new Gallery;
-                $newgalleries->product_id = $product->id;
-                $newgalleries->photo = $photo;
-                $newgalleries->save();
+                $gallery = new Gallery;
+                $gallery->product_id = $product->id;
+                $gallery->src = $photo;
+                $img_thumb = explode('/', $photo);
+                $directory = dirname($photo);
+                $thumb = $directory . '/thumbs/' . end($img_thumb);
+                $gallery->thumb = $thumb;
+                $gallery->save();
             }
         }
         $product->details = $request->details;

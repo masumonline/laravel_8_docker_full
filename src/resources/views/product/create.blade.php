@@ -116,8 +116,8 @@
                 <tr class="hover:bg-gray-100">
                   <td class="p-4 w-4">Category</td>
                   <td class="p-4 w-4">
-                  <input list="category" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" name="category_id">
-                  <datalist id="category" if="category">
+                    <input list="category" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" name="category_id">
+                    <datalist id="category" if="category">
                       @foreach($categories as $cat)
                       <option value="{{$cat->id}}">{{$cat->name}}</option>
                       @if ($cat->sub->count())
@@ -131,7 +131,7 @@
                       @endforeach
                       @endif
                       @endforeach
-                      </datalist>
+                    </datalist>
                   </td>
                 </tr>
                 <tr class="hover:bg-gray-100">
@@ -145,6 +145,7 @@
                         </svg>
                         <span class="mt-2 text-base leading-normal">Select a file</span>
                         <input id="thumbnail" class="hidden" type="text" name="photo">
+                        <div id="holder" style="margin-top:15px;max-height:100px;"></div>
                       </label>
                     </div>
                   </td>
@@ -153,7 +154,7 @@
                   <td class="p-4 w-4">Gallery Photo</td>
                   <td class="p-4 w-4">
                     <div class="flex w-full items-center justify-left bg-grey-lighter">
-                      <label id="lfm2" data-input="thumbnail2" data-preview="holder" class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-600 hover:text-white">
+                      <label id="lfm2" data-input="thumbnail2" data-preview="holder2" class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-600 hover:text-white">
                         <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                           <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                         </svg>
@@ -161,6 +162,7 @@
                         <input id="thumbnail2" class="hidden" type="text" name="gallery" multiple>
                       </label>
                     </div>
+                    <div id="holder2" class="flex flex-wrap p-3"></div>
                   </td>
                 </tr>
                 <tr class="hover:bg-gray-100">

@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\BranchController;
@@ -33,6 +34,8 @@ Route::group(['middleware' => ['auth']], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
     Route::get('/erpdata', [ProductController::class, 'select']);
+
+    Route::resource('/orders', OrderController::class);
 
     Route::get('/productssearch', [ProductController::class,'search']);
     Route::resource('/products', ProductController::class);

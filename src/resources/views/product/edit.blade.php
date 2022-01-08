@@ -146,7 +146,6 @@
                   <td class="p-4 w-4">Main Photo</td>
                   <td class="p-4 w-4">
                     <img class="max-h-44" src="{{ $product->photo }}" />
-                    {{ $product->photo }}
                     <div class="flex w-full items-center justify-left bg-grey-lighter">
                       <label id="lfm" data-input="thumbnail" data-preview="holder" class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-600 hover:text-white">
                         <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -154,18 +153,20 @@
                         </svg>
                         <span class="mt-2 text-base leading-normal">Select a file</span>
                         <input id="thumbnail" class="hidden" type="text" name="photo" value="{{$product->photo}}">
+                        <img src="{{$product->photo}}" />
                       </label>
                     </div>
+                    <div id="holder" class="flex flex-wrap p-3"></div>
                   </td>
                 </tr>
                 <tr class="hover:bg-gray-100">
                   <td class="p-4 w-4">Gallery Photo</td>
                   <td class="p-4 w-4">
                     @foreach($galleries as $gallery)
-                    <img class="inline-block w-64" src="{{ $gallery->photo }}">
+                    <img class="inline-block w-64" src="{{ $gallery->src }}">
                     @endforeach
                     <div class="flex w-full items-center justify-left bg-grey-lighter">
-                      <label id="lfm2" data-input="thumbnail2" data-preview="holder" class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-600 hover:text-white">
+                      <label id="lfm2" data-input="thumbnail2" data-preview="holder2" class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-600 hover:text-white">
                         <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                           <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                         </svg>
@@ -173,6 +174,7 @@
                         <input id="thumbnail2" class="hidden" type="text" name="gallery" multiple>
                       </label>
                     </div>
+                    <div id="holder2" class="flex flex-wrap p-3"></div>
                   </td>
                 </tr>
                 <tr class="hover:bg-gray-100">
